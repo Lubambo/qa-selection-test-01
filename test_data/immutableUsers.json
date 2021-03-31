@@ -1,0 +1,20 @@
+{
+    "mainUser": {
+        "email": "teste@email.com",
+        "password": "1234"
+    },
+    "list": [
+        {
+            "email": "teste.120@email.com",
+            "password": "12345"
+        },
+        {
+            "email": "teste.121@email.com",
+            "password": "teste"
+        },
+        {
+            "email": "",
+            "password": ""
+        }
+    ]
+}

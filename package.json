@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/jasmine": "^3.6.9",
     "@types/protractor": "^4.0.0",
+    "jasmine-data-provider": "^2.2.0",
     "jasmine-spec-reporter": "^6.0.0",
     "protractor": "^7.0.0"
   }
