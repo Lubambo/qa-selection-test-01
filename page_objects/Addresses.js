@@ -7,7 +7,6 @@ class Addresses {
         // Address dashboard Page.
         this.newAddressLink = element(by.linkText("New Address"));
         this.tableItems = element.all(by.xpath('/html/body/div/table/tbody/tr'));
-        this.itemColumns = element.all(by.xpath('/html/body/div/table/tbody/td'));
 
         // New Address form.
         this.form = {
@@ -117,6 +116,10 @@ class Addresses {
         }
 
         return false;
+    }
+
+    getTableRowItems(row = 0) {
+        return this.tableItems.get(row).all(by.tagName("td"));
     }
 
 }

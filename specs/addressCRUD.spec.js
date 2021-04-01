@@ -9,7 +9,7 @@ const Addresses = require("../page_objects/Addresses");
 const testUser = immutableUsers.mainUser;
 const testData = immutableAddresses;
 
-describe("[Test Case - 1: Endereço -> Cadastro de Endereço]", () => {
+describe("[Test Case - 1: Endereço -> Cadastro e Visualização de Endereço]", () => {
     browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
     beforeAll(() => {
@@ -25,9 +25,9 @@ describe("[Test Case - 1: Endereço -> Cadastro de Endereço]", () => {
         });
 
         if (data.firstName == "" || data.lastName == "" || data.address1 == "" || data.city == "" || data.zipCode == "") {
-            it("Exibir mensagem de erro", () => {
+            it("Exibir mensagem de erro de campos necessários", () => {
                 Addresses.newAddressLink.click();
-                browser.sleep(1000);
+                browser.sleep(2000);
                 Addresses.addNewAddress(data);
                 expect(Addresses.form.errorMessage.getText()).toMatch(/^[0-9]\serror/);
             });
@@ -51,8 +51,8 @@ describe("[Test Case - 1: Endereço -> Cadastro de Endereço]", () => {
             it("Visualizar Endereço", () => {
                 //browser.sleep(6000);
 
-                let item = Addresses.tableItems.get(0).all(by.tagName("td"));
-                let showBtn = item.get(4).element(by.tagName("a"));
+                let row = Addresses.getTableRowItems(0);
+                let showBtn = row.get(4).element(by.tagName("a"));
 
                 showBtn.click();
 
@@ -60,4 +60,44 @@ describe("[Test Case - 1: Endereço -> Cadastro de Endereço]", () => {
             });
         }
     });
+});
+
+describe("[Test Case - 2: Endereço -> Edição do Endereço]", () => {
+
+    let firstNameBefore;
+
+    beforeAll(() => {
+        Welcome.goToAddressPage();
+    });
+
+    it("Acessar página de edição de Endereço", async () => {
+        browser.sleep(2000);
+
+        let row = Addresses.getTableRowItems(0);
+        firstNameBefore = await row.get(0).getText();
+        let editBtn = row.get(5).element(by.tagName("a"));
+
+        editBtn.click();
+
+        expect(browser.getCurrentUrl()).toMatch(/http:\/\/a\.testaddressbook\.com\/addresses\/[0-9]{4}\/edit/);
+    });
+
+    it("Editar Endereço", () => {
+        let editedTag = ' - [Edited]';
+        browser.sleep(1000);
+
+        let firstNameInput = Addresses.form.firstName;
+        firstNameInput.clear();
+        firstNameInput.sendKeys(firstNameBefore + editedTag);
+
+        Addresses.form.submitBtn.click();
+        Addresses.listLink.click();
+
+        browser.sleep(2000);
+        let row = Addresses.getTableRowItems(0);
+        let firstNameAfter = row.get(0);
+
+        expect(firstNameAfter.getText()).toBe(firstNameBefore + editedTag);
+    });
+
 });
