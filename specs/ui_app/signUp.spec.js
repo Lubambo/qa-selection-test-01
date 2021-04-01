@@ -1,17 +1,17 @@
 const { browser, by } = require("protractor");
 const using = require("jasmine-data-provider");
-const SignUp = require("../page_objects/SignUp");
-const SignIn = require("../page_objects/SignIn");
-const Welcome = require("../page_objects/Welcome");
-const immutableUsers = require("../test_data/immutableUsers.json");
-const randomTestData = require("../test_data/DataGenerator");
+const SignUp = require("../../page_objects/SignUp");
+const SignIn = require("../../page_objects/SignIn");
+const Welcome = require("../../page_objects/Welcome");
+const immutableUsers = require("../../test_data/immutableUsers.json");
+const randomTestData = require("../../test_data/DataGenerator");
 
 const testData = immutableUsers.list;
 //const testData = randomTestData.generateRandomUsers(3);  // Usado para evitar os problemas envolvendo cadastro de usuário já existente.
 
 using(testData, (data) => {
 
-    describe("[Test Case - 1: Autenticação -> Cadastro de usuário]", () => {
+    describe("[Autenticação: Test Case - 1 -> Cadastro de usuário]", () => {
 
         browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
@@ -30,10 +30,12 @@ using(testData, (data) => {
             });
 
             it("Capturar e-mail do usuário logado", () => {
+                browser.sleep(3000);
                 checkLoggedEmail();
             });
 
             it("Encerrar sessão do usuário recém cadastrado", () => {
+                browser.sleep(3000);
                 Welcome.signOut();
                 expect(browser.getCurrentUrl()).toBe("http://a.testaddressbook.com/sign_in");
             });
@@ -41,7 +43,7 @@ using(testData, (data) => {
 
     });
 
-    describe("[Test Case - 2: Autenticação -> 'Sign In' de usuário recém cadastrado]", () => {
+    describe("[Autenticação: Test Case - 2 -> 'Sign In' de usuário recém cadastrado]", () => {
 
         browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
@@ -50,7 +52,7 @@ using(testData, (data) => {
         });
 
         if (data.email.length === 0 || data.password.length === 0) {
-            it("Fazer login sem preencher todos os campos", () => {
+            it("Tentar fazer login sem preencher todos os campos", () => {
                 SignIn.visit();
                 SignIn.logIn(data.email, data.password);
 

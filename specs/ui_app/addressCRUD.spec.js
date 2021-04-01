@@ -1,15 +1,15 @@
 const using = require("jasmine-data-provider");
 const { browser, element, by, protractor } = require("protractor");
-const SignIn = require("../page_objects/SignIn");
-const Welcome = require("../page_objects/Welcome");
-const immutableUsers = require("../test_data/immutableUsers.json");
-const immutableAddresses = require("../test_data/immutableAddresses.json");
-const Addresses = require("../page_objects/Addresses");
+const SignIn = require("../../page_objects/SignIn");
+const Welcome = require("../../page_objects/Welcome");
+const immutableUsers = require("../../test_data/immutableUsers.json");
+const immutableAddresses = require("../../test_data/immutableAddresses.json");
+const Addresses = require("../../page_objects/Addresses");
 
 const testUser = immutableUsers.mainUser;
 const testData = immutableAddresses;
 
-describe("[Test Case - 1: Endereço -> Cadastro e Visualização de Endereço]", () => {
+describe("[Endereço: Test Case - 1 -> Cadastro e Visualização de Endereço]", () => {
     browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
     beforeAll(() => {
@@ -62,7 +62,7 @@ describe("[Test Case - 1: Endereço -> Cadastro e Visualização de Endereço]",
     });
 });
 
-describe("[Test Case - 2: Endereço -> Edição do Endereço]", () => {
+describe("[Endereço: Test Case - 2 -> Edição do Endereço]", () => {
 
     let firstNameBefore;    // Usada na verificação de mudança de valor em "First Name" depois da edição.
 
@@ -103,7 +103,7 @@ describe("[Test Case - 2: Endereço -> Edição do Endereço]", () => {
 });
 
 
-describe("[Test Case - 3: Endereço -> Remover Endereço]", () => {
+describe("[Endereço: Test Case - 3 -> Remover Endereço]", () => {
 
     beforeAll(() => {
         Welcome.goToAddressPage();
