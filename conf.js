@@ -7,7 +7,7 @@ exports.config = {
     },
     framework: "jasmine2",
     //specs: ["specs/*.spec.js"],
-    specs: ["specs/addressCRUD.spec.js"],
+    specs: ["specs/signUp.spec.js", "specs/addressCRUD.spec.js"],
     baseUrl: "http://a.testaddressbook.com/",
     allScriptsTimeout: 120000,
     onPrepare: () => {

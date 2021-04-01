@@ -1,5 +1,5 @@
 const using = require("jasmine-data-provider");
-const { browser, element, by } = require("protractor");
+const { browser, element, by, protractor } = require("protractor");
 const SignIn = require("../page_objects/SignIn");
 const Welcome = require("../page_objects/Welcome");
 const immutableUsers = require("../test_data/immutableUsers.json");
@@ -64,7 +64,7 @@ describe("[Test Case - 1: Endereço -> Cadastro e Visualização de Endereço]",
 
 describe("[Test Case - 2: Endereço -> Edição do Endereço]", () => {
 
-    let firstNameBefore;
+    let firstNameBefore;    // Usada na verificação de mudança de valor em "First Name" depois da edição.
 
     beforeAll(() => {
         Welcome.goToAddressPage();
@@ -98,6 +98,46 @@ describe("[Test Case - 2: Endereço -> Edição do Endereço]", () => {
         let firstNameAfter = row.get(0);
 
         expect(firstNameAfter.getText()).toBe(firstNameBefore + editedTag);
+    });
+
+});
+
+
+describe("[Test Case - 3: Endereço -> Remover Endereço]", () => {
+
+    beforeAll(() => {
+        Welcome.goToAddressPage();
+    });
+
+    it("Cancelar exclusão do Endereço", async () => {
+        browser.sleep(2000);
+        let tableSizeBefore = await Addresses.tableItems.count();
+
+        let row = Addresses.getTableRowItems(0);
+        let destroyBtn = row.last().element(by.tagName("a"));
+        destroyBtn.click();
+
+        browser.switchTo().alert().dismiss();
+
+        let tableSizeAfter = await Addresses.tableItems.count();
+
+        expect(tableSizeBefore).toBe(tableSizeAfter);
+    });
+
+    it("Confirmar exclusão do Endereço", async () => {
+        browser.sleep(2000);
+        let tableSizeBefore = await Addresses.tableItems.count();
+
+        let row = Addresses.getTableRowItems(0);
+        let destroyBtn = row.last().element(by.tagName("a"));
+        destroyBtn.click();
+
+        browser.switchTo().alert().accept();
+
+        browser.sleep(2000);
+        let tableSizeAfter = await Addresses.tableItems.count();
+
+        expect(tableSizeAfter).toBe(tableSizeBefore - 1);
     });
 
 });

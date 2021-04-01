@@ -24,3 +24,13 @@
 | 3 | Pressionar o botão “Sign In” | A aplicação deve apresentar para o usuário a mensagem de erro na mesma página | A aplicação apresenta a mensagem de erro esperada mas redireciona o usuário para outra página |
 
 **Observação:** o mesmo acontece caso tente realizar login com todos os campos preenchidos, mas credenciais não cadastradas.
+
+# 3. Edição de "Address" acarreta em perda de dados
+**Descrição:** quando o usuário edita um _address_ os campos **State** e **Picture** não apresentam os dados cadastrados anteriormente, eles se apresentam em seu estado inicial/neutro, como se fosse na tela de cadastro de novo _address_.
+
+**Pré Condição:** acessar a página de edição de um _address_ e salvar (havendo alteração ou não).
+
+|   | Passos | Resultado esperado | Resultado obtido |
+| ------ | ------ | ------ | ------ |
+| 1 | Acessar página **Address** |  |  |
+| 2 | Clicar no botão editar de algum _address_ | Apresentar os dados do _address_ conforme foram cadastrados | Os campos **State** e **Picture** não apresentam os dados cadastrados. Eles estão no estado inicial/neutro, como se apresentam na tela de cadastro de um novo _address_ |
