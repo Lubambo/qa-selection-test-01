@@ -11,7 +11,7 @@ const testData = immutableUsers.list;
 
 using(testData, (data) => {
 
-    describe("[Autenticação (Test Case - 1) -> Cadastro de usuário]", () => {
+    describe("[Test Case - 1: Autenticação -> Cadastro de usuário]", () => {
 
         browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
@@ -41,7 +41,7 @@ using(testData, (data) => {
 
     });
 
-    describe("[Autenticação (Test Case - 2) -> 'Sign In' de usuário recém cadastrado]", () => {
+    describe("[Test Case - 2: Autenticação -> 'Sign In' de usuário recém cadastrado]", () => {
 
         browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 

@@ -9,7 +9,7 @@ const Addresses = require("../page_objects/Addresses");
 const testUser = immutableUsers.mainUser;
 const testData = immutableAddresses;
 
-describe("[Test Case - 3: Endereço -> Cadastro de Endereço]", () => {
+describe("[Test Case - 1: Endereço -> Cadastro de Endereço]", () => {
     browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
     beforeAll(() => {
@@ -35,7 +35,7 @@ describe("[Test Case - 3: Endereço -> Cadastro de Endereço]", () => {
         else {
             it("Adicionar Endereço", async () => {
                 browser.sleep(1000);
-                let tableSizeBefore = await element.all(by.xpath('/html/body/div/table/tbody/tr')).count();
+                let tableSizeBefore = await Addresses.tableItems.count();
 
                 Addresses.newAddressLink.click();
                 browser.sleep(1000);
@@ -43,9 +43,20 @@ describe("[Test Case - 3: Endereço -> Cadastro de Endereço]", () => {
                 Addresses.listLink.click();
 
                 browser.sleep(1000);
-                let tableSizeAfter = await element.all(by.xpath('/html/body/div/table/tbody/tr')).count();
+                let tableSizeAfter = await Addresses.tableItems.count();
 
                 expect(tableSizeAfter).toBeGreaterThan(tableSizeBefore);
+            });
+
+            it("Visualizar Endereço", () => {
+                //browser.sleep(6000);
+
+                let item = Addresses.tableItems.get(0).all(by.tagName("td"));
+                let showBtn = item.get(4).element(by.tagName("a"));
+
+                showBtn.click();
+
+                expect(browser.getCurrentUrl()).toMatch(/http:\/\/a\.testaddressbook\.com\/addresses\/[0-9]{4}/);
             });
         }
     });
