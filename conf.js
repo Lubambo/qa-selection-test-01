@@ -6,7 +6,8 @@ exports.config = {
         browserName: "chrome"
     },
     framework: "jasmine2",
-    specs: ["specs/*.spec.js"],
+    //specs: ["specs/*.spec.js"],
+    specs: ["specs/addressCRUD.spec.js"],
     baseUrl: "http://a.testaddressbook.com/",
     allScriptsTimeout: 120000,
     onPrepare: () => {

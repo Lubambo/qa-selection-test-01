@@ -1,0 +1,41 @@
+[
+    {
+        "firstName": "Test 1",
+        "lastName": "Testing One",
+        "address1": "Street 1, Test Number 1",
+        "address2": "Street 2, Test Number 2",
+        "city": "City of Georgia",
+        "state": "Georgia",
+        "zipCode": "56245684",
+        "country": 0,
+        "birthday": "01/01/2000",
+        "color": "#FF0000",
+        "age": 21,
+        "website": "https://www.google.com.br/",
+        "picture": "picture.png",
+        "phone": "1 55 965893355",
+        "commonInterests": [
+            0,
+            1
+        ],
+        "note": "Note - Test 1"
+    },
+    {
+        "firstName": "",
+        "lastName": "",
+        "address1": "",
+        "address2": "",
+        "city": "",
+        "state": "",
+        "zipCode": "",
+        "country": -1,
+        "birthday": "",
+        "color": "",
+        "age": 0,
+        "website": "",
+        "picture": "",
+        "phone": "",
+        "commonInterests": [],
+        "note": ""
+    }
+]

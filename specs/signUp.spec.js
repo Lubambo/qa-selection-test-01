@@ -7,11 +7,11 @@ const immutableUsers = require("../test_data/immutableUsers.json");
 const randomTestData = require("../test_data/DataGenerator");
 
 const testData = immutableUsers.list;
-//const testData = randomTestData.generateRandomUsers(3);  // Usado para evitar os problemas envolvendo cadastro de usuário já existente
+//const testData = randomTestData.generateRandomUsers(3);  // Usado para evitar os problemas envolvendo cadastro de usuário já existente.
 
 using(testData, (data) => {
 
-    describe("[1. Cadastro de usuário]", () => {
+    describe("[Autenticação (Test Case - 1) -> Cadastro de usuário]", () => {
 
         browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
@@ -20,20 +20,20 @@ using(testData, (data) => {
         });
 
         if (data.email.length !== 0 || data.password.length !== 0) {
-            it("Verifica URL de Cadastro/Sign Up", () => {
+            it("Verificar URL de Cadastro/Sign Up", () => {
                 SignUp.visit();
                 expect(browser.getCurrentUrl()).toBe("http://a.testaddressbook.com/sign_up");
             });
 
-            it("Cria novo usuário", () => {
+            it("Criar novo usuário", () => {
                 SignUp.createUser(data.email, data.password);
             });
 
-            it("Captura e-mail do usuário logado", () => {
+            it("Capturar e-mail do usuário logado", () => {
                 checkLoggedEmail();
             });
 
-            it("Encerra sessão do usuário recém cadastrado", () => {
+            it("Encerrar sessão do usuário recém cadastrado", () => {
                 Welcome.signOut();
                 expect(browser.getCurrentUrl()).toBe("http://a.testaddressbook.com/sign_in");
             });
@@ -41,7 +41,7 @@ using(testData, (data) => {
 
     });
 
-    describe("[2. 'Sign In' de usuário recém cadastrado]", () => {
+    describe("[Autenticação (Test Case - 2) -> 'Sign In' de usuário recém cadastrado]", () => {
 
         browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
