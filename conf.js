@@ -7,7 +7,8 @@ exports.config = {
     },
     framework: "jasmine2",
     //specs: ["specs/*.spec.js"],
-    specs: ["specs/ui_app/signUp.spec.js", "specs/ui_app/addressCRUD.spec.js"],
+    //specs: ["specs/ui_app/signUp.spec.js", "specs/ui_app/addressCRUD.spec.js"],
+    specs: ["specs/rest_api_app/*.spec.js"],
     baseUrl: "http://a.testaddressbook.com/",
     allScriptsTimeout: 120000,
     onPrepare: () => {

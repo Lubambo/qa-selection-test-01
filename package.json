@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Felipe Lubambo",
   "license": "ISC",
   "devDependencies": {
     "@types/jasmine": "^3.6.9",
     "@types/protractor": "^4.0.0",
+    "axios": "^0.21.1",
     "jasmine-data-provider": "^2.2.0",
     "jasmine-spec-reporter": "^6.0.0",
     "protractor": "^7.0.0"
