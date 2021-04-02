@@ -4,19 +4,25 @@ class Get extends Request {
 
     constructor() {
         super();
+        this._method = "GET";
     }
 
     async getUser(id = 1) {
         let requestUrl = this.getBaseUrl() + "/users/" + id;
 
-        return await this.request(requestUrl, "GET");
+        return await this.request(requestUrl, this._method);
     }
 
     async listUsers(pageNumber = 1) {
         let requestUrl = this.getBaseUrl() + "/users";
-        let params = { page: pageNumber };
 
-        return await this.request(requestUrl, "GET", params);
+        let params = {
+            params: {
+                page: pageNumber
+            }
+        };
+
+        return await this.request(requestUrl, this._method, params);
     }
 
 }

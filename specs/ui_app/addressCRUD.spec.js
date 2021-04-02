@@ -140,4 +140,8 @@ describe("[Endereço: Test Case - 3 -> Remover Endereço]", () => {
         expect(tableSizeAfter).toBe(tableSizeBefore - 1);
     });
 
+    afterAll(() => {
+        Welcome.signOut();
+    });
+
 });

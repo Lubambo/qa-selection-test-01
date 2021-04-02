@@ -38,8 +38,16 @@ class Request {
                 makeRequest = axios.post(url, params);
                 break;
 
+            case "put":
+                makeRequest = axios.put(url, params);
+                break;
+
+            case "patch":
+                makeRequest = axios.patch(url, params);
+                break;
+
             case "delete":
-                makeRequest = axios.delete(url);
+                makeRequest = axios.delete(url, params);
                 break;
         }
 

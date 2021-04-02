@@ -16,6 +16,7 @@ using(testData, (data) => {
         browser.waitForAngularEnabled(false);   // Necessário para navegar em páginas que não usam Angular.
 
         beforeAll(() => {
+            browser.get("/");
             browser.manage().window().maximize();
         });
 
@@ -31,7 +32,7 @@ using(testData, (data) => {
 
             it("Capturar e-mail do usuário logado", () => {
                 browser.sleep(3000);
-                checkLoggedEmail();
+                checkLoggedEmail(data.email);
             });
 
             it("Encerrar sessão do usuário recém cadastrado", () => {
@@ -67,7 +68,7 @@ using(testData, (data) => {
             it("Autenticar usuário", () => {
                 SignIn.visit();
                 SignIn.logIn(data.email, data.password);
-                checkLoggedEmail();
+                checkLoggedEmail(data.email);
             });
 
             it("Encerrar sessão do usuário após Sign In", () => {
@@ -78,9 +79,9 @@ using(testData, (data) => {
 
     });
 
-    function checkLoggedEmail() {
+    function checkLoggedEmail(email) {
         var loggedEmail = Welcome.loggedEmail;
-        expect(loggedEmail.getText()).toBe(data.email);
+        expect(loggedEmail.getText()).toBe(email);
     }
 
 });
