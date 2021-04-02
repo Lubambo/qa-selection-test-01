@@ -11,22 +11,6 @@ class Request {
     async request(url, method, params = {}) {
         let makeRequest;
 
-        /*
-        let formData = new FormData();
-
-        if (params != {}) {
-            for (let key in params) {
-                let tag = "" + key;
-                formData.append(tag, params[key]);
-            }
-        }
-        else {
-            formData = params;
-        }
-        
-        console.log(formData);
-        */
-
         method = method.toLowerCase();
 
         switch (method) {
