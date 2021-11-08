@@ -1,4 +1,4 @@
-# Vox - Seleção QA
+# Teste de Seleção para QA
 
 ## Descrição
 Projeto contendo as implementações solicitadas no teste para a seleção de Analista de Qualidade.
