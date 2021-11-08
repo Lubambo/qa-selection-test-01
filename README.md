@@ -4,21 +4,21 @@
 Projeto contendo as implementações solicitadas no teste para a seleção de Analista de Qualidade.
 
 ## Relatórios
-Os relatórios foram divididos na pasta [reports](https://gitlab.com/Lubambo/vox-selecao-qa/-/tree/master/reports) da seguinte forma:
+Os relatórios foram divididos na pasta [reports](./reports) da seguinte forma:
 
-### Aplicação UI - Pasta [ui_app](https://gitlab.com/Lubambo/vox-selecao-qa/-/tree/master/reports/ui_app)
+### Aplicação UI - Pasta [ui_app](./reports/ui_app)
 |  Relatório | Arquivo |
 | ------ | ------ |
-| Relatório de bugs | [Bug_Report](https://gitlab.com/Lubambo/vox-selecao-qa/-/blob/master/reports/ui_app/Bug_Report.md) |
-| Relatório de melhorias | [Proposals](https://gitlab.com/Lubambo/vox-selecao-qa/-/blob/master/reports/ui_app/Proposals.md) |
+| Relatório de bugs | [Bug_Report](./reports/ui_app/Bug_Report.md) |
+| Relatório de melhorias | [Proposals](./reports/ui_app/Proposals.md) |
 
-### Aplicação Rest API - Pasta [rest_app](https://gitlab.com/Lubambo/vox-selecao-qa/-/tree/master/reports/rest_app)
+### Aplicação Rest API - Pasta [rest_app](./reports/rest_app)
 |  Relatório | Arquivo |
 | ------ | ------ |
-| Relatório de bugs | [Bug_Report](https://gitlab.com/Lubambo/vox-selecao-qa/-/blob/master/reports/rest_app/Bug_Report.md) |
+| Relatório de bugs | [Bug_Report](./reports/rest_app/Bug_Report.md) |
 
 ## Observação
-Caso os testes de _Sign Up_ da **Aplicação UI** precisem ser rodados mais de uma vez, é necessários ajustar os e-mails dos usuários (exceto o _mainUser_) para não entrar em conflito com o [bug **1** reportado no relatório](https://gitlab.com/Lubambo/vox-selecao-qa/-/blob/master/reports/ui_app/Bug_Report.md#1-tentar-cadastrar-usu%C3%A1rio-sem-preencher-algum-campo-n%C3%A3o-apresenta-mensagem-de-erro)
+Caso os testes de _Sign Up_ da **Aplicação UI** precisem ser rodados mais de uma vez, é necessários ajustar os e-mails dos usuários (exceto o _mainUser_) para não entrar em conflito com o [bug **1** reportado no relatório](./reports/ui_app/Bug_Report.md#1-tentar-cadastrar-usu%C3%A1rio-sem-preencher-algum-campo-n%C3%A3o-apresenta-mensagem-de-erro)
 
 ---
 
